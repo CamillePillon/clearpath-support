@@ -281,26 +281,6 @@
   .ai-tile.risk li::before { color: var(--red); }
   .ai-tile.resp li::before { color: var(--blue); }
 
-  /* ─── VISUALS PLACEHOLDER ─── */
-  .visuals-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px; background: var(--rule);
-  }
-  .visual-slot {
-    background: var(--surface);
-    aspect-ratio: 4/3;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 0.8rem;
-    color: var(--text-soft);
-  }
-  .visual-slot svg { opacity: 0.25; }
-  .visual-slot span {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
-    opacity: 0.4;
-  }
-
   /* ─── CTA ─── */
   #request .s-label { color: var(--gold-light); }
   #request .s-label::before { color: rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.12); }
@@ -394,12 +374,89 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
+  /* ─── DATA TILES ─── */
+  #visuals { background: var(--navy); }
+  #visuals .s-label { color: var(--gold-light); }
+  #visuals .s-label::before { color: rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.12); }
+  #visuals h2 { color: #fff; }
+  #visuals .section-lead { color: rgba(255,255,255,0.55); }
+
+  .data-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+  .data-tile {
+    background: rgba(255,255,255,0.04);
+    padding: 2.2rem 2rem 2rem;
+    display: flex; flex-direction: column; gap: 1.6rem;
+    transition: background 0.2s;
+  }
+  .data-tile:hover { background: rgba(255,255,255,0.07); }
+
+  .tile-tag {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.63rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+  }
+  .tile-tag-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .dot-gold  { background: var(--gold); }
+  .dot-blue  { background: #60a5fa; }
+  .dot-navy  { background: rgba(255,255,255,0.3); }
+
+  .tile-stats { display: flex; flex-direction: column; gap: 0; flex: 1; }
+  .stat-block { padding: 1.1rem 0; }
+  .stat-block:first-child { padding-top: 0; }
+  .stat-divider { height: 1px; background: rgba(255,255,255,0.08); }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 700; line-height: 1;
+    color: #fff; margin-bottom: 0.4rem; letter-spacing: -0.02em;
+  }
+  .tile-ai .stat-num { color: var(--gold-light); }
+  .tile-multilingual .stat-num { color: #93c5fd; }
+  .stat-unit { font-size: 1.6rem; font-weight: 500; vertical-align: super; margin-left: 1px; }
+  .stat-label { font-size: 0.83rem; color: rgba(255,255,255,0.5); font-weight: 300; line-height: 1.5; }
+
+  .tile-insight {
+    display: flex; align-items: flex-start; gap: 0.6rem;
+    font-size: 0.83rem; font-weight: 500;
+    color: rgba(255,255,255,0.78); line-height: 1.55;
+    padding: 1rem 1.1rem;
+    background: rgba(255,255,255,0.06);
+    border-left: 2px solid var(--gold);
+  }
+  .tile-multilingual .tile-insight { border-left-color: #60a5fa; }
+  .tile-insight svg { flex-shrink: 0; margin-top: 0.1rem; opacity: 0.55; }
+
+  .tile-sources {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem; color: rgba(255,255,255,0.22);
+    line-height: 1.6; letter-spacing: 0.02em;
+  }
+  .tile-sources a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+  .tile-sources a:hover { color: var(--gold-light); }
+
+  /* Video tile */
+  .tile-video { justify-content: space-between; }
+  .video-slot {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    border: 1px dashed rgba(255,255,255,0.13); min-height: 200px;
+  }
+  .video-inner { text-align: center; }
+  .video-icon { color: rgba(255,255,255,0.2); margin-bottom: 1rem; }
+  .video-label { font-family: 'Playfair Display', serif; font-size: 1rem; color: rgba(255,255,255,0.35); margin-bottom: 0.3rem; }
+  .video-sub { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.18); }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; padding-bottom: 4rem; }
     .hero-right { padding-top: 0; }
     .ai-grid { grid-template-columns: 1fr; }
-    .visuals-grid { grid-template-columns: 1fr; }
+    .data-row { grid-template-columns: 1fr; }
     .cta-grid { grid-template-columns: 1fr; gap: 3rem; }
     .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
   }
@@ -594,26 +651,96 @@
   </div>
 </section>
 
-<!-- VISUALS (placeholder for Workshop 6) -->
+<!-- PUBLISHING IN NUMBERS -->
 <section class="section" id="visuals">
   <div class="section-inner">
-    <p class="s-label reveal" data-num="◈">Visual Resources</p>
-    <h2 class="reveal">Publishing in Context</h2>
-    <p class="section-lead reveal">AI-generated visuals illustrating key concepts across the publishing landscape. More coming soon.</p>
-    <div class="visuals-grid reveal">
-      <div class="visual-slot">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="4" y="4" width="32" height="32" rx="2"/><path d="M4 28l9-9 6 6 5-5 8 8"/><circle cx="14" cy="14" r="3"/></svg>
-        <span>Visual 1</span>
+    <p class="s-label reveal" data-num="◈">Publishing in Numbers</p>
+    <h2 class="reveal">Why This Matters</h2>
+    <p class="section-lead reveal">A few figures that put the challenges — and stakes — of publishing in context.</p>
+
+    <!-- DATA TILE ROW -->
+    <div class="data-row reveal">
+
+      <!-- TILE 1: AI -->
+      <div class="data-tile tile-ai">
+        <div class="tile-tag">
+          <span class="tile-tag-dot dot-gold"></span>
+          AI &amp; Publishing
+        </div>
+        <div class="tile-stats">
+          <div class="stat-block">
+            <div class="stat-num">78<span class="stat-unit">%</span></div>
+            <div class="stat-label">of organisations now use AI in at least one business function</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-block">
+            <div class="stat-num">63<span class="stat-unit">%</span></div>
+            <div class="stat-label">of those apply it specifically to create text</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-block">
+            <div class="stat-num">71<span class="stat-unit">%</span></div>
+            <div class="stat-label">of publishers say AI drafts still need major editing before publication</div>
+          </div>
+        </div>
+        <div class="tile-insight">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="7" r="6"/><path d="M7 6v4M7 4.5v.5"/></svg>
+          AI is embedded in content workflows — but human oversight remains indispensable.
+        </div>
+        <div class="tile-sources">
+          Sources: <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener">McKinsey Global Survey 2024</a> · <a href="https://reutersinstitute.politics.ox.ac.uk/" target="_blank" rel="noopener">Reuters Institute 2025</a>
+        </div>
       </div>
-      <div class="visual-slot">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="4" y="4" width="32" height="32" rx="2"/><path d="M4 28l9-9 6 6 5-5 8 8"/><circle cx="14" cy="14" r="3"/></svg>
-        <span>Visual 2</span>
+
+      <!-- TILE 2: MULTILINGUAL -->
+      <div class="data-tile tile-multilingual">
+        <div class="tile-tag">
+          <span class="tile-tag-dot dot-blue"></span>
+          Language &amp; Access
+        </div>
+        <div class="tile-stats">
+          <div class="stat-block">
+            <div class="stat-num">98<span class="stat-unit">%</span></div>
+            <div class="stat-label">of scientific research is published in English</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-block">
+            <div class="stat-num">18<span class="stat-unit">%</span></div>
+            <div class="stat-label">of the world's population actually speaks English</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-block">
+            <div class="stat-num">40<span class="stat-unit">%</span></div>
+            <div class="stat-label">of people globally lack access to information in the language they understand best</div>
+          </div>
+        </div>
+        <div class="tile-insight">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="7" r="6"/><path d="M7 6v4M7 4.5v.5"/></svg>
+          Language is not a translation problem. It is an equity problem.
+        </div>
+        <div class="tile-sources">
+          Sources: <a href="https://theconversation.com/english-dominates-scientific-research-heres-how-we-can-fix-it-and-why-it-matters-226198" target="_blank" rel="noopener">The Conversation / PLOS One 2020</a> · <a href="https://www.unesco.org/en/articles/new-unesco-report-calls-multilingual-education-unlock-learning-and-inclusion" target="_blank" rel="noopener">UNESCO Languages Matter, 2025</a>
+        </div>
       </div>
-      <div class="visual-slot">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="4" y="4" width="32" height="32" rx="2"/><path d="M4 28l9-9 6 6 5-5 8 8"/><circle cx="14" cy="14" r="3"/></svg>
-        <span>Visual 3</span>
+
+      <!-- TILE 3: VIDEO placeholder -->
+      <div class="data-tile tile-video">
+        <div class="tile-tag">
+          <span class="tile-tag-dot dot-navy"></span>
+          Clearpath in brief
+        </div>
+        <div class="video-slot">
+          <div class="video-inner">
+            <div class="video-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.5"/><path d="M11 9.5l9 4.5-9 4.5V9.5z" fill="currentColor"/></svg>
+            </div>
+            <p class="video-label">Explainer video</p>
+            <p class="video-sub">Coming soon — Workshop 4</p>
+          </div>
+        </div>
       </div>
-    </div>
+
+    </div><!-- end data-row -->
   </div>
 </section>
 
