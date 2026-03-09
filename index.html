@@ -26,7 +26,10 @@
     --blue:       #1e40af;
     --blue-bg:    #eff4ff;
   }
-
+a.hero-pill {
+  text-decoration: none;
+  color: inherit;
+}
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.6; }
@@ -494,7 +497,8 @@
       </a>
     </div>
   </div>
-<a href="#essentials" class="hero-pill">
+<div class="hero-right">
+    <a href="#essentials" class="hero-pill">
       <span class="pill-num">01</span>
       <div class="pill-content">
         <strong>Publishing Essentials</strong>
@@ -521,6 +525,8 @@
         <strong>Submit a support request</strong>
         <span>Tell us about your project and receive tailored guidance</span>
       </div>
+    </a>
+  </div>
     </a>
 </section>
 
