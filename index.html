@@ -736,14 +736,53 @@ a.nav-logo {
           <span class="tile-tag-dot dot-navy"></span>
           Clearpath in brief
         </div>
-        <div class="video-slot">
-          <div class="video-inner">
-            <div class="video-icon">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.5"/><path d="M11 9.5l9 4.5-9 4.5V9.5z" fill="currentColor"/></svg>
-            </div>
-            <p class="video-label">Explainer video</p>
-            <p class="video-sub">Coming soon — Workshop 4</p>
-          </div>
+        <div class="video-slot" style="border:none; padding:0; min-height:0;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 532 728" width="100%" height="100%" style="display:block;">
+            <defs>
+              <style>
+                .arrow-line { stroke-dasharray: 434; stroke-dashoffset: 434; animation: lineGrow 6s ease-in-out infinite; }
+                .arrow-glow { stroke-dasharray: 434; stroke-dashoffset: 434; animation: lineGrow 6s ease-in-out infinite; }
+                .arrowhead { opacity: 0; animation: arrowFade 6s ease-in-out infinite; }
+                .cp-text-group { opacity: 0; animation: textFade 6s ease-in-out infinite; }
+                .cp-subtitle-group { opacity: 0; animation: subtitleFade 6s ease-in-out infinite; }
+                @keyframes lineGrow { 0% { stroke-dashoffset: 434; } 40% { stroke-dashoffset: 0; } 88% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 434; } }
+                @keyframes arrowFade { 0% { opacity: 0; } 38% { opacity: 0; } 48% { opacity: 1; } 88% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+                @keyframes textFade { 0% { opacity: 0; } 46% { opacity: 0; } 60% { opacity: 1; } 88% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+                @keyframes subtitleFade { 0% { opacity: 0; } 56% { opacity: 0; } 70% { opacity: 1; } 88% { opacity: 1; } 96% { opacity: 0; } 100% { opacity: 0; } }
+              </style>
+              <filter id="cpGlow" x="-300%" y="-5%" width="700%" height="110%">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <radialGradient id="cpBgGlow" cx="50%" cy="38%" r="42%">
+                <stop offset="0%" stop-color="#1a3060"/>
+                <stop offset="100%" stop-color="#0b1d3a"/>
+              </radialGradient>
+            </defs>
+            <rect width="532" height="728" fill="url(#cpBgGlow)"/>
+            <path d="M 30 30 L 30 52 M 30 30 L 52 30" stroke="#c9983a" stroke-width="1.2" opacity="0.25" fill="none" stroke-linecap="round"/>
+            <path d="M 502 30 L 502 52 M 502 30 L 480 30" stroke="#c9983a" stroke-width="1.2" opacity="0.25" fill="none" stroke-linecap="round"/>
+            <path d="M 30 698 L 30 676 M 30 698 L 52 698" stroke="#c9983a" stroke-width="1.2" opacity="0.25" fill="none" stroke-linecap="round"/>
+            <path d="M 502 698 L 502 676 M 502 698 L 480 698" stroke="#c9983a" stroke-width="1.2" opacity="0.25" fill="none" stroke-linecap="round"/>
+            <circle cx="266" cy="90" r="7.5" fill="none" stroke="#c9983a" stroke-width="0.9" opacity="0.4"/>
+            <circle cx="266" cy="90" r="3.5" fill="#c9983a"/>
+            <line x1="266" y1="90" x2="266" y2="524" stroke="#c9983a" stroke-width="8" opacity="0.12" filter="url(#cpGlow)" class="arrow-glow"/>
+            <line x1="266" y1="90" x2="266" y2="524" stroke="#c9983a" stroke-width="1.8" stroke-linecap="round" class="arrow-line"/>
+            <g class="arrowhead">
+              <path d="M 256 512 L 266 528 L 276 512" fill="none" stroke="#c9983a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <g class="cp-text-group">
+              <text text-anchor="middle" x="266" y="590" font-family="'Playfair Display', Georgia, serif" font-size="52" letter-spacing="-0.02em">
+                <tspan font-weight="600" fill="#ffffff">Clear</tspan><tspan font-weight="400" font-style="italic" fill="#c9983a">path</tspan>
+              </text>
+              <line x1="182" y1="603" x2="350" y2="603" stroke="#c9983a" stroke-width="0.6" opacity="0.5"/>
+            </g>
+            <g class="cp-subtitle-group">
+              <text x="266" y="626" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="300" letter-spacing="0.16em" fill="rgba(201,152,58,0.82)">TOWARD CLEAR · CREDIBLE</text>
+              <text x="266" y="643" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="300" letter-spacing="0.16em" fill="rgba(201,152,58,0.82)">ACCESSIBLE CONTENT</text>
+            </g>
+            <text x="266" y="705" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="300" letter-spacing="0.22em" fill="#3d4f63">CLEARPATH · PUBLISHING SUPPORT</text>
+          </svg>
         </div>
       </div>
 
